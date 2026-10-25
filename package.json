@@ -1,0 +1,71 @@
+{
+  "name": "dsh-boot-animation-custom",
+  "version": "0.3.1",
+  "description": "DeepSeek Harness 启动动画定制版：8 段短片随机/固定播放、片尾淡入、分时问候、可选欢迎语与素材管理。",
+  "license": "MIT",
+  "author": "lxj5820",
+  "contributors": [
+    {
+      "name": "BEIDAOU",
+      "url": "https://github.com/BEIDAOU"
+    }
+  ],
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "boot-animation",
+    "splash"
+  ],
+  "type": "module",
+  "main": "entry.js",
+  "exports": {
+    ".": "./entry.js",
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "assets",
+    "lib",
+    "src",
+    "cordis.patch.yml",
+    "entry.js",
+    "README.md",
+    "MANUAL.md",
+    "LICENSE",
+    "CREDITS.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "*"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BEIDAOU/dsh-boot-animation-custom.git"
+  },
+  "homepage": "https://github.com/BEIDAOU/dsh-boot-animation-custom#readme",
+  "bugs": {
+    "url": "https://github.com/BEIDAOU/dsh-boot-animation-custom/issues"
+  },
+  "scripts": {
+    "build": "node build-client.mjs",
+    "test": "node --test verify/*.test.mjs",
+    "check": "node --check entry.js && node --check src/boot-screen.js && node --check lib/client.js"
+  }
+}
